@@ -8,13 +8,16 @@ application/logs/*
 
 !application/*/.htaccess
 
+application/vendor/
+application/.env
+
 composer.lock
 
 user_guide_src/build/*
 user_guide_src/cilexer/build/*
 user_guide_src/cilexer/dist/*
 user_guide_src/cilexer/pycilexer.egg-info/*
-/vendor/
+
 /bower_components/
 /node_modules/
 

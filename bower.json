@@ -1,0 +1,21 @@
+{
+  "name": "phonebook",
+  "description": "phonebook project",
+  "main": "",
+  "authors": [
+    "Stefano Maglione"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.1.0",
+    "jquery": "^3.3.1"
+  }
+}

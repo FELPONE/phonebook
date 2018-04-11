@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Register_controller extends CI_Controller
+class RegisterController extends CI_Controller
 {
 
     /**
@@ -17,7 +17,7 @@ class Register_controller extends CI_Controller
         isset($_SESSION['logged_in']) ? redirect('/contact') : null;
         $this->load->library(array('session'));
         $this->load->helper(array('url'));
-        $this->load->model('user_model');
+        $this->load->model('usermodel');
         $this->load->helper('form');
         $this->load->library('form_validation');
 
@@ -49,7 +49,7 @@ class Register_controller extends CI_Controller
             $email    = $this->input->post('email');
             $password = $this->input->post('password');
 
-            if ($this->user_model->create_user($username, $email, $password)) {
+            if ($this->usermodel->create_user($username, $email, $password)) {
 
                 $this->session->set_flashdata('msg', 'Succesfully registrated, you can now log in!');
                 $this->load->view('templates/header');

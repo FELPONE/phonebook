@@ -50,22 +50,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
-$route['register'] = 'auth/register_controller/register';
-$route['login'] = 'auth/login_controller/login';
-$route['logout'] = 'auth/login_controller/logout';
+$route['register'] = 'auth/RegisterController/register';
+$route['login'] = 'auth/LoginController/login';
+$route['logout'] = 'auth/LoginController/logout';
 
-$route['contact'] = 'contact_controller/index';
-$route['contact/(:num)'] = 'contact_controller/index/$1';
-
-
-$route['create'] = 'contact_controller/create';
-$route['edit/(:num)'] = 'contact_controller/update/$1';
-$route['delete/(:num)'] = 'contact_controller/delete/$1';
-$route['reset_search'] = 'contact_controller/reset_search';
+$route['contact'] = 'ContactController/index';
+$route['contact/(:num)'] = 'ContactController/index/$1';
 
 
+$route['create'] = 'ContactController/create';
+$route['edit/(:num)'] = 'ContactController/update/$1';
+$route['delete/(:num)'] = 'ContactController/delete/$1';
+$route['reset_search'] = 'ContactController/reset_search';
 
-$route['default_controller'] = 'auth/login_controller/login';
+
+
+$route['default_controller'] = 'ContactController/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 

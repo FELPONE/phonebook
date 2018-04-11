@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Login_controller extends CI_Controller
+class LoginController extends CI_Controller
 {
 
     /**
@@ -16,7 +16,7 @@ class Login_controller extends CI_Controller
         parent::__construct();
         $this->load->library(array('session'));
         $this->load->helper(array('url'));
-        $this->load->model('user_model');
+        $this->load->model('usermodel');
         $this->load->helper('form');
 
     }
@@ -51,11 +51,11 @@ class Login_controller extends CI_Controller
             $username = $this->input->post('username');
             $password = $this->input->post('password');
 
-            if ($this->user_model->resolve_user_login($username, $password)) {
+            if ($this->usermodel->resolve_user_login($username, $password)) {
 
-                $user_id = $this->user_model->get_user_id_from_username($username);
+                $user_id = $this->usermodel->get_user_id_from_username($username);
                 
-                $user = $this->user_model->get_user($user_id);
+                $user = $this->usermodel->get_user($user_id);
                
                 $_SESSION['user_id']   = (int) $user->id;
                 $_SESSION['username']  = (string) $user->username;

@@ -16,7 +16,7 @@ class ContactController extends CI_Controller
         isset($_SESSION['logged_in']) ? null : redirect('/login');
         $this->load->library(array('session'));
         $this->load->helper(array('url'));
-        $this->load->model('ContactModel');
+        $this->load->model('contactmodel');
         $this->load->library('pagination');
         $this->load->helper('form');
         $this->load->library('form_validation');

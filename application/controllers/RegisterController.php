@@ -17,7 +17,7 @@ class RegisterController extends CI_Controller
         isset($_SESSION['logged_in']) ? redirect('/contact') : null;
         $this->load->library(array('session'));
         $this->load->helper(array('url'));
-        $this->load->model('UserModel');
+        $this->load->model('usermodel');
         $this->load->helper('form');
         $this->load->library('form_validation');
 

@@ -2,25 +2,24 @@
 
 Installation:
 
-Set your db credentials in application/config/database.php
-Set your base url in application/config/config.php
-Ensure you have mod_rewrite enabled on your server
-
-In application folder run composer install
+	Set your db credentials in application/config/database.php
+	Set your base url in application/config/config.php
+	Ensure you have mod_rewrite enabled on your server
+	In application folder run composer install
 
 Front-end package management:
 
-Install npm and bower,
-apt-get install npm
-npm install bower -g
-ln -s /usr/bin/nodejs   /usr/bin/node
-bower install
+	 Install npm and bower,
+	 apt-get install npm
+	 npm install bower -g
+	 ln -s /usr/bin/nodejs   /usr/bin/node
+	 bower install
 
 Migration:
 
-In the root folder,
+	 In the root folder,
 
- run application/vendor/bin/phinx migrate -c ./phinx.php
+	 run application/vendor/bin/phinx migrate -c ./phinx.php
  
  Seed you db:
 

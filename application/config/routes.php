@@ -51,9 +51,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['test'] = 'TestController';
 
-$route['register'] = 'auth/RegisterController/register';
-$route['login'] = 'auth/LoginController/login';
-$route['logout'] = 'auth/LoginController/logout';
+$route['register'] = 'RegisterController/register';
+$route['login'] = 'LoginController/login';
+$route['logout'] = 'LoginController/logout';
 
 $route['contact'] = 'ContactController/index';
 $route['contact/(:num)'] = 'ContactController/index/$1';

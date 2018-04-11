@@ -16,7 +16,7 @@ class ContactController extends CI_Controller
         isset($_SESSION['logged_in']) ? null : redirect('/login');
         $this->load->library(array('session'));
         $this->load->helper(array('url'));
-        $this->load->model('contactmodel');
+        $this->load->model('ContactModel');
         $this->load->library('pagination');
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -37,15 +37,15 @@ class ContactController extends CI_Controller
         $limit_per_page = 15;
 
         $this->form_validation->run();
-        $search        = $this->contactmodel->searchterm_handler($this->input->post('search', true));
+        $search        = $this->ContactModel->searchterm_handler($this->input->post('search', true));
 
-        $total_records = $this->contactmodel->get_total($search);
+        $total_records = $this->ContactModel->get_total($search);
 
         $page = ($this->uri->segment(2)) ? ($this->uri->segment(2) - 1) : 0;
 
         if ($total_records > 0) {
 
-            $data['data'] = $this->contactmodel->getContacts($limit_per_page, $page * $limit_per_page, $search);
+            $data['data'] = $this->ContactModel->getContacts($limit_per_page, $page * $limit_per_page, $search);
             
 
             $config['base_url']    = base_url() . 'contact';
@@ -111,7 +111,7 @@ class ContactController extends CI_Controller
             $data['user_id']      = $_SESSION['user_id'];
             $data['created_at']   = date('Y-m-j H:i:s');
 
-            if ($this->contactmodel->insert($data)) {
+            if ($this->ContactModel->insert($data)) {
 
                 $this->session->set_flashdata('msg', 'Contact created!');
                 redirect(base_url('contact'));
@@ -146,7 +146,7 @@ class ContactController extends CI_Controller
 
         if ($this->form_validation->run() == false) {
 
-            $contact = $this->contactmodel->getContactById($id);
+            $contact = $this->ContactModel->getContactById($id);
             $this->load->view('templates/header');
             $this->load->view('contact/contact_update_view', $contact);
             $this->load->view('templates/footer');
@@ -160,7 +160,7 @@ class ContactController extends CI_Controller
             $data['user_id']      = $_SESSION['user_id'];
             $data['updated_at']   = date('Y-m-j H:i:s');
 
-            if ($this->contactmodel->update($data, $id)) {
+            if ($this->ContactModel->update($data, $id)) {
 
                 $this->session->set_flashdata('msg', 'Contact updated!');
                 redirect(base_url('contact'));
@@ -185,7 +185,7 @@ class ContactController extends CI_Controller
     {
         $id   = $this->uri->segment(2);
         if(! $this->hasPermission($id)) redirect('contact');
-        $item = $this->contactmodel->delete($id);
+        $item = $this->ContactModel->delete($id);
         $this->session->set_flashdata('msg', 'Contact deleted!');
         redirect('contact');
     }
@@ -213,7 +213,7 @@ class ContactController extends CI_Controller
      */
     public function hasPermission($id)
     {
-        $contact = $this->contactmodel->getContactById($id);
+        $contact = $this->ContactModel->getContactById($id);
 
         if($contact['user_id'] == $_SESSION['user_id']) return TRUE;
 

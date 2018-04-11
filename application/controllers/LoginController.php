@@ -16,7 +16,7 @@ class LoginController extends CI_Controller
         parent::__construct();
         $this->load->library(array('session'));
         $this->load->helper(array('url'));
-        $this->load->model('usermodel');
+        $this->load->model('UserModel');
         $this->load->helper('form');
 
     }
@@ -52,11 +52,11 @@ class LoginController extends CI_Controller
             $username = $this->input->post('username');
             $password = $this->input->post('password');
 
-            if ($this->usermodel->resolve_user_login($username, $password)) {
+            if ($this->UserModel->resolve_user_login($username, $password)) {
 
-                $user_id = $this->usermodel->get_user_id_from_username($username);
+                $user_id = $this->UserModel->get_user_id_from_username($username);
                 
-                $user = $this->usermodel->get_user($user_id);
+                $user = $this->UserModel->get_user($user_id);
                
                 $_SESSION['user_id']   = (int) $user->id;
                 $_SESSION['username']  = (string) $user->username;
